@@ -1,4 +1,4 @@
-# projecteuler
+# project euler
 project euler. 
 
-implement erlang.
+implement Erlang.

@@ -8,7 +8,9 @@
          problem005/0,
          problem006/0,
          problem007/0,
-         problem008/0
+         problem008/0,
+         problem009/0,
+         problem010/0
         ]).
 
 problem001() ->
@@ -121,3 +123,18 @@ multi([], Total) ->
 multi([H|T], Total) ->
     multi(T, Total*H).
 
+problem009() ->
+    problem009(998, 1, 1).
+
+problem009(1, _, C) ->
+    problem009(998-C, 1, C+1);
+problem009(A, B, C) ->
+    if (A*A) == (B*B + C*C) ->
+            A*B*C;
+       true  ->
+            problem009(A-1, B+1, C)
+    end.
+
+%% take time.
+problem010() ->
+    lists:sum(prime:prime(2000000)).
