@@ -10,7 +10,8 @@
          problem007/0,
          problem008/0,
          problem009/0,
-         problem010/0
+         problem010/0,
+         problem012/0
         ]).
 
 problem001() ->
@@ -138,3 +139,20 @@ problem009(A, B, C) ->
 %% take time.
 problem010() ->
     lists:sum(prime:prime(2000000)).
+
+problem012() ->
+    problem012(1, 0, 0).
+
+problem012(_, Tri, Divisor) when 500 =< Divisor ->
+    Tri;
+problem012(N, Tri, _) ->
+    problem012(N+1, N+Tri, divnum(N+Tri, 1, 0)).
+
+divnum(X, N, Num) when  X =< N*N ->
+    Num*2;
+divnum(X, N, Num) ->
+    if X rem N == 0 ->
+            divnum(X, N+1, Num+1);
+       true  ->
+            divnum(X, N+1, Num)
+    end.
